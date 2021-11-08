@@ -4,16 +4,24 @@ import { Button } from "react-native";
 
 import { StyledHome, StyledTitle } from "./styledComponents";
 
-function Home({ message, changeModuleAState }) {
+function Home({ message, changeModuleAState, backgroundColor }) {
+  const changeGlobalState = () => {
+    changeModuleAState({
+      name: "Buyisile",
+      modulebBackgroundColor: "brown",
+      secondaryColor: "green",
+    });
+  };
+
   return (
-    <StyledHome>
+    <StyledHome backgroundColor={backgroundColor}>
       <StyledTitle>{message}</StyledTitle>
 
       <Button
         backgroundColor="red"
         color="yellow"
         title="Update"
-        onPress={() => changeModuleAState()}
+        onPress={() => changeGlobalState()}
       />
     </StyledHome>
   );
@@ -21,6 +29,7 @@ function Home({ message, changeModuleAState }) {
 
 Home.propTypes = {
   message: PropTypes.string,
+  backgroundColor: PropTypes.string,
   changeModuleAState: PropTypes.func,
 };
 

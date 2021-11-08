@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledHome = styled.View`
-  background-color: brown;
+  background-color: ${({ backgroundColor }) => backgroundColor || "brown"};
   padding: 10px;
 `;
 
